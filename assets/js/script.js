@@ -48,6 +48,60 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
   }
+// ---------- RELATED EVENTS ----------
+if (eventId && eventDetailsContainer) {
+  const event = events.find(e => e.id === parseInt(eventId));
+
+  if (event) {
+    // عرض تفاصيل الحدث
+    eventDetailsContainer.innerHTML = `
+      <div class="row">
+        <div class="col-md-8">
+          <img src="${event.image}" class="img-fluid mb-3 rounded" alt="${event.title}">
+          <h2>${event.title}</h2>
+          <p><strong>Date:</strong> ${event.date}</p>
+          <p><strong>Location:</strong> ${event.location}</p>
+          <p>${event.description}</p>
+          <a href="events.html" class="btn btn-secondary mt-3">Back to Events</a>
+        </div>
+      </div>
+    `;
+
+    // عرض الأحداث المشابهة أو العشوائية
+    const relatedGrid = document.getElementById('relatedGrid');
+    if (relatedGrid) {
+      // الأحداث المشابهة حسب التصنيف
+      let related = events.filter(e => e.category === event.category && e.id !== event.id);
+
+      // إذا لا توجد أحداث مشابهة → اختر 3 أحداث عشوائية
+      if (related.length === 0) {
+        related = [...events]
+          .filter(e => e.id !== event.id)
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3);
+      }
+
+      // عرض الأحداث
+      relatedGrid.innerHTML = "";
+      related.forEach(r => {
+        relatedGrid.innerHTML += `
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <img src="${r.image}" class="card-img-top" alt="${r.title}">
+              <div class="card-body">
+                <h5 class="card-title">${r.title}</h5>
+                <p><strong>Date:</strong> ${r.date}</p>
+                <p><strong>Location:</strong> ${r.location}</p>
+                <a href="event.html?id=${r.id}" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+  }
+}
+
 
   // ---------- FILTERING (INDEX & EVENTS) ----------
   const searchInput = document.getElementById('searchInput');
@@ -126,4 +180,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
