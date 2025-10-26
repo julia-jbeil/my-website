@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- EVENTS DATA ----------
   const events = [
-    { id: 1, title: "Music Festival", date: "28 Oct 2025", location: "City Hall", category: "Music", image: "images/event3.jpg", description: "Enjoy live music performances from local and international artists!" },
-    { id: 2, title: "Art Exhibition", date: "30 Oct 2025", location: "Art Center", category: "Culture", image: "images/event4.jpg", description: "Explore stunning artworks by talented artists across the city." },
-    { id: 3, title: "Sports Tournament", date: "31 Oct 2025", location: "Stadium", category: "Sports", image: "images/event6.jpg", description: "Watch thrilling matches between top teams!" },
-    { id: 4, title: "Family Fun Fair", date: "2 Nov 2025", location: "Central Park", category: "Family", image: "images/event5.jpg", description: "Games, rides, food, and fun activities for all ages!" }
+    { id: 1, title: "Music Festival", date: "28 Oct 2025", location: "City Hall", category: "Music", image: "assets/images/event3.jpg", description: "Enjoy live music performances from local and international artists!" },
+    { id: 2, title: "Art Exhibition", date: "30 Oct 2025", location: "Art Center", category: "Culture", image: "assets/images/event4.jpg", description: "Explore stunning artworks by talented artists across the city." },
+    { id: 3, title: "Sports Tournament", date: "31 Oct 2025", location: "Stadium", category: "Sports", image: "assets/images/event6.jpg", description: "Watch thrilling matches between top teams!" },
+    { id: 4, title: "Family Fun Fair", date: "2 Nov 2025", location: "Central Park", category: "Family", image: "assets/images/event5.jpg", description: "Games, rides, food, and fun activities for all ages!" }
   ];
 
   // ---------- EVENT DETAILS ----------
@@ -126,3 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
